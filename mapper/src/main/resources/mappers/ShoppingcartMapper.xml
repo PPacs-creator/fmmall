@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.ShoppingcartMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Shoppingcart">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cartId" jdbcType="INTEGER" property="cartid" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="skuId" jdbcType="VARCHAR" property="skuid" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="cartNum" jdbcType="VARCHAR" property="cartnum" />
+    <result column="cartTime" jdbcType="VARCHAR" property="carttime" />
+    <result column="productPrice" jdbcType="DECIMAL" property="productprice" />
+    <result column="skuProps" jdbcType="VARCHAR" property="skuprops" />
+  </resultMap>
+  <resultMap id="ShoppingcartVOMap" type="com.example.fmmall.entity.ShoppingcartVO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="cartId" jdbcType="INTEGER" property="cartid" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="skuId" jdbcType="VARCHAR" property="skuid" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="cartNum" jdbcType="VARCHAR" property="cartnum" />
+    <result column="cartTime" jdbcType="VARCHAR" property="carttime" />
+    <result column="productPrice" jdbcType="DECIMAL" property="productprice" />
+    <result column="skuProps" jdbcType="VARCHAR" property="skuprops" />
+    <result column="productName" jdbcType="VARCHAR" property="productname" />
+    <result column="url" jdbcType="VARCHAR" property="productimg" />
+      <result column="originalPrice" jdbcType="VARCHAR" property="originalprice" />
+      <result column="sellPrice" jdbcType="VARCHAR" property="sellprice" />
+      <result column="skuName" jdbcType="VARCHAR" property="skuname" />
+  </resultMap>
+
+  <select id="selectShopcartByUserId" resultMap="ShoppingcartVOMap">
+    select c.cartId,
+           c.productId,
+           c.skuId,
+           c.userId,
+           c.cartNum,
+           c.cartTime,
+           c.productPrice,
+           c.skuProps,
+           p.productName,
+           i.url,
+          s.originalPrice,
+          s.sellPrice,
+          s.skuName
+    from shoppingcart c
+           INNER JOIN product p
+           INNER JOIN productimg i
+           INNER JOIN productsku s
+        ON c.productId = p.productId and i.itemId=p.productId
+        and c.skuId=s.skuId
+    where userId=#{userId}
+      and i.isMain=1;
+
+  </select>
+
+  <update id="updateCartnumByByCartid">
+      update shoppingcart set cartNum=#{cartNum} where cartId=#{cartId}
+  </update>
+
+    <resultMap id="ShoppingcartVOMap2" type="com.example.fmmall.entity.ShoppingcartVO">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="cartId" jdbcType="INTEGER" property="cartid" />
+        <result column="productId" jdbcType="VARCHAR" property="productid" />
+        <result column="skuId" jdbcType="VARCHAR" property="skuid" />
+        <result column="userId" jdbcType="VARCHAR" property="userid" />
+        <result column="cartNum" jdbcType="VARCHAR" property="cartnum" />
+        <result column="cartTime" jdbcType="VARCHAR" property="carttime" />
+        <result column="productPrice" jdbcType="DECIMAL" property="productprice" />
+        <result column="skuProps" jdbcType="VARCHAR" property="skuprops" />
+        <result column="productName" jdbcType="VARCHAR" property="productname" />
+        <result column="url" jdbcType="VARCHAR" property="productimg" />
+        <result column="originalPrice" jdbcType="VARCHAR" property="originalprice" />
+        <result column="sellPrice" jdbcType="VARCHAR" property="sellprice" />
+        <result column="skuName" jdbcType="VARCHAR" property="skuname" />
+        <result column="stock"  property="skustock" />
+    </resultMap>
+
+    <select id="selectShopcartByCids" resultMap="ShoppingcartVOMap2">
+        select c.cartId, c.productId,  c.skuId, c.userId, c.cartNum, c.cartTime,
+        c.productPrice, c.skuProps,  p.productName, i.url,s.originalPrice,s.sellPrice,s.skuName,s.stock
+        from shoppingcart c
+        INNER JOIN product p
+        INNER JOIN productimg i
+        INNER JOIN productsku s
+        ON c.productId = p.productId
+        and i.itemId=p.productId
+        and c.skuId=s.skuId
+        where i.isMain=1 and c.cartId in
+        <foreach collection="cids" item="cid" separator="," open="(" close=")">
+            #{cid}
+        </foreach>
+    </select>
+</mapper>

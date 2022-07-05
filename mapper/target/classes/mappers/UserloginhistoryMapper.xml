@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.UserloginhistoryMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Userloginhistory">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="AREA" jdbcType="VARCHAR" property="area" />
+    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />
+    <result column="USERID" jdbcType="VARCHAR" property="userid" />
+    <result column="IP" jdbcType="VARCHAR" property="ip" />
+    <result column="LOGINTIME" jdbcType="VARCHAR" property="logintime" />
+  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Userloginhistory">-->
+<!--    &lt;!&ndash;-->
+<!--      WARNING - @mbg.generated-->
+<!--    &ndash;&gt;-->
+<!--    <id column="ID" jdbcType="INTEGER" property="id" />-->
+<!--    <result column="AREA" jdbcType="VARCHAR" property="area" />-->
+<!--    <result column="COUNTRY" jdbcType="VARCHAR" property="country" />-->
+<!--    <result column="USERID" jdbcType="VARCHAR" property="userid" />-->
+<!--    <result column="IP" jdbcType="VARCHAR" property="ip" />-->
+<!--    <result column="LOGINTIME" jdbcType="VARCHAR" property="logintime" />-->
+<!--  </resultMap>-->
+</mapper>

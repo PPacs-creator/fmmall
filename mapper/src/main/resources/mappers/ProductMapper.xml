@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Product">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="productName" jdbcType="VARCHAR" property="productname" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="rootCategoryid" jdbcType="INTEGER" property="rootcategoryid" />
+    <result column="soldNum" jdbcType="INTEGER" property="soldnum" />
+    <result column="productStatus" jdbcType="INTEGER" property="productstatus" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <resultMap id="ProductVOMap" type="com.example.fmmall.entity.ProductVO">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="productName" jdbcType="VARCHAR" property="productname" />
+    <result column="categoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="rootCategoryid" jdbcType="INTEGER" property="rootcategoryid" />
+    <result column="soldNum" jdbcType="INTEGER" property="soldnum" />
+    <result column="productStatus" jdbcType="INTEGER" property="productstatus" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+    <collection property="imgs" select="com.example.fmmall.dao.ProductimgMapper.selectProductImgByProductId" column="productId"></collection>
+  </resultMap>
+
+
+  <select id="selectRecommendProducts" resultMap="ProductVOMap">
+  select
+      productId,
+      productName,
+      categoryId,
+      rootCategoryid,
+       soldNum,
+    productStatus,
+         content,
+         createTime,
+         updateTime
+
+  from product order by createTime desc limit 0,3
+</select>
+
+
+    <select id="selectTop6ByCategory" resultMap="ProductVOMap">
+        select productId,
+               productName,
+               categoryId,
+               rootCategoryid,
+               soldNum,
+               productStatus,
+               content,
+               createTime,
+               updateTime
+        from product
+        where rootCategoryid=#{cid}
+        order by soldNum desc limit 0,6
+    </select>
+</mapper>

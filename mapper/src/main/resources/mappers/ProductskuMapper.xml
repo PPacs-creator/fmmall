@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.ProductskuMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Productsku">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="skuId" jdbcType="VARCHAR" property="skuid" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="skuName" jdbcType="VARCHAR" property="skuname" />
+    <result column="skuImg" jdbcType="VARCHAR" property="skuimg" />
+    <result column="untitled" jdbcType="VARCHAR" property="untitled" />
+    <result column="originalPrice" jdbcType="INTEGER" property="originalprice" />
+    <result column="sellPrice" jdbcType="INTEGER" property="sellprice" />
+    <result column="discounts" jdbcType="DECIMAL" property="discounts" />
+    <result column="stock" jdbcType="INTEGER" property="stock" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Productsku">-->
+<!--    &lt;!&ndash;-->
+<!--      WARNING - @mbg.generated-->
+<!--    &ndash;&gt;-->
+<!--    <id column="skuId" jdbcType="VARCHAR" property="skuid" />-->
+<!--    <result column="productId" jdbcType="VARCHAR" property="productid" />-->
+<!--    <result column="skuName" jdbcType="VARCHAR" property="skuname" />-->
+<!--    <result column="skuImg" jdbcType="VARCHAR" property="skuimg" />-->
+<!--    <result column="untitled" jdbcType="VARCHAR" property="untitled" />-->
+<!--    <result column="originalPrice" jdbcType="INTEGER" property="originalprice" />-->
+<!--    <result column="sellPrice" jdbcType="INTEGER" property="sellprice" />-->
+<!--    <result column="discounts" jdbcType="DECIMAL" property="discounts" />-->
+<!--    <result column="stock" jdbcType="INTEGER" property="stock" />-->
+<!--    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />-->
+<!--    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />-->
+<!--    <result column="status" jdbcType="INTEGER" property="status" />-->
+<!--  </resultMap>-->
+</mapper>

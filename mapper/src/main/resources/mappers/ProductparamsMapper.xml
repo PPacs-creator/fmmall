@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.ProductparamsMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Productparams">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="paramId" jdbcType="VARCHAR" property="paramid" />
+    <result column="productId" jdbcType="VARCHAR" property="productid" />
+    <result column="productPlace" jdbcType="VARCHAR" property="productplace" />
+    <result column="footPeriod" jdbcType="VARCHAR" property="footperiod" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="factoryName" jdbcType="VARCHAR" property="factoryname" />
+    <result column="factoryAddress" jdbcType="VARCHAR" property="factoryaddress" />
+    <result column="packagingMethod" jdbcType="VARCHAR" property="packagingmethod" />
+    <result column="weight" jdbcType="VARCHAR" property="weight" />
+    <result column="storageMethod" jdbcType="VARCHAR" property="storagemethod" />
+    <result column="eatMethod" jdbcType="VARCHAR" property="eatmethod" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Productparams">-->
+<!--    &lt;!&ndash;-->
+<!--      WARNING - @mbg.generated-->
+<!--    &ndash;&gt;-->
+<!--    <id column="paramId" jdbcType="VARCHAR" property="paramid" />-->
+<!--    <result column="productId" jdbcType="VARCHAR" property="productid" />-->
+<!--    <result column="productPlace" jdbcType="VARCHAR" property="productplace" />-->
+<!--    <result column="footPeriod" jdbcType="VARCHAR" property="footperiod" />-->
+<!--    <result column="brand" jdbcType="VARCHAR" property="brand" />-->
+<!--    <result column="factoryName" jdbcType="VARCHAR" property="factoryname" />-->
+<!--    <result column="factoryAddress" jdbcType="VARCHAR" property="factoryaddress" />-->
+<!--    <result column="packagingMethod" jdbcType="VARCHAR" property="packagingmethod" />-->
+<!--    <result column="weight" jdbcType="VARCHAR" property="weight" />-->
+<!--    <result column="storageMethod" jdbcType="VARCHAR" property="storagemethod" />-->
+<!--    <result column="eatMethod" jdbcType="VARCHAR" property="eatmethod" />-->
+<!--    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />-->
+<!--    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />-->
+<!--  </resultMap>-->
+</mapper>

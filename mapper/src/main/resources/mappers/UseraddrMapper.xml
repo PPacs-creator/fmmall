@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.UseraddrMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Useraddr">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="addrId" jdbcType="VARCHAR" property="addrid" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="receiverName" jdbcType="VARCHAR" property="receivername" />
+    <result column="receiverMobile" jdbcType="VARCHAR" property="receivermobile" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="addr" jdbcType="VARCHAR" property="addr" />
+    <result column="postcode" jdbcType="VARCHAR" property="postcode" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="commonAddr" jdbcType="INTEGER" property="commonaddr" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+<!--  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Useraddr">-->
+<!--    &lt;!&ndash;-->
+<!--      WARNING - @mbg.generated-->
+<!--    &ndash;&gt;-->
+<!--    <id column="addrId" jdbcType="VARCHAR" property="addrid" />-->
+<!--    <result column="userId" jdbcType="VARCHAR" property="userid" />-->
+<!--    <result column="receiverName" jdbcType="VARCHAR" property="receivername" />-->
+<!--    <result column="receiverMobile" jdbcType="VARCHAR" property="receivermobile" />-->
+<!--    <result column="province" jdbcType="VARCHAR" property="province" />-->
+<!--    <result column="city" jdbcType="VARCHAR" property="city" />-->
+<!--    <result column="area" jdbcType="VARCHAR" property="area" />-->
+<!--    <result column="addr" jdbcType="VARCHAR" property="addr" />-->
+<!--    <result column="postcode" jdbcType="VARCHAR" property="postcode" />-->
+<!--    <result column="status" jdbcType="INTEGER" property="status" />-->
+<!--    <result column="commonAddr" jdbcType="INTEGER" property="commonaddr" />-->
+<!--    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />-->
+<!--    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />-->
+<!--  </resultMap>-->
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.ProductimgMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Productimg">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="itemId" jdbcType="VARCHAR" property="itemid" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="isMain" jdbcType="INTEGER" property="ismain" />
+    <result column="createdTime" jdbcType="TIMESTAMP" property="createdtime" />
+    <result column="updatedTime" jdbcType="TIMESTAMP" property="updatedtime" />
+  </resultMap>
+<select id="selectProductImgByProductId" resultMap="BaseResultMap" >
+  select
+  id,
+  itemId,
+  url,
+  sort,
+  isMain,
+  createdTime,
+  updatedTime
+  from productimg where itemId=#{productId}
+</select>
+</mapper>

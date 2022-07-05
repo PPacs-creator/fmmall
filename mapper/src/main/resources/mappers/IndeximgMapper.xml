@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.IndeximgMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Indeximg">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="imgId" jdbcType="VARCHAR" property="imgid" />
+    <result column="imgUrl" jdbcType="VARCHAR" property="imgurl" />
+    <result column="imgBgcolor" jdbcType="VARCHAR" property="imgbgcolor" />
+    <result column="prodId" jdbcType="VARCHAR" property="prodid" />
+    <result column="categoryId" jdbcType="VARCHAR" property="categoryid" />
+    <result column="indexType" jdbcType="INTEGER" property="indextype" />
+    <result column="seq" jdbcType="INTEGER" property="seq" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="createTime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+<select id="listIndexImgs" resultMap="BaseResultMap" >
+  select imgId,
+         imgUrl,
+         imgBgcolor,
+         prodId,
+         categoryId,
+         indexType,
+         seq,
+         status,
+         createTime,
+         updateTime
+from indeximg
+where status=1
+order by seq
+</select>
+</mapper>

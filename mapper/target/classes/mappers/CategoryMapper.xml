@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.fmmall.dao.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.example.fmmall.entity.Category">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="categoryId" jdbcType="INTEGER" property="categoryid" />
+    <result column="categoryName" jdbcType="VARCHAR" property="categoryname" />
+    <result column="categoryLevel" jdbcType="INTEGER" property="categorylevel" />
+    <result column="parentId" jdbcType="INTEGER" property="parentid" />
+    <result column="categoryIcon" jdbcType="VARCHAR" property="categoryicon" />
+    <result column="categorySlogan" jdbcType="VARCHAR" property="categoryslogan" />
+    <result column="categoryPic" jdbcType="VARCHAR" property="categorypic" />
+    <result column="categoryBgcolor" jdbcType="VARCHAR" property="categorybgcolor" />
+  </resultMap>
+
+
+  <resultMap id="categoryVOMap" type="com.example.fmmall.entity.CategoryVO">
+  <id column="category_id1" jdbcType="INTEGER" property="categoryid"/>
+  <result column="category_name1" jdbcType="VARCHAR" property="categoryname"/>
+  <result column="category_level1" jdbcType="INTEGER" property="categorylevel"/>
+  <result column="parent_id1" jdbcType="INTEGER" property="parentid"/>
+  <result column="category_icon1" jdbcType="VARCHAR" property="categoryicon"/>
+  <result column="category_slogan1" jdbcType="VARCHAR" property="categoryslogan"/>
+  <result column="category_pic1" jdbcType="VARCHAR" property="categorypic"/>
+  <result column="category_bg_color1" jdbcType="VARCHAR" property="categorybgcolor"/>
+  <collection property="categories" ofType="com.example.fmmall.entity.CategoryVO">
+    <id column="category_id2" jdbcType="INTEGER" property="categoryid"/>
+    <result column="category_name2" jdbcType="VARCHAR" property="categoryname"/>
+    <result column="category_level2" jdbcType="INTEGER" property="categorylevel"/>
+    <result column="parent_id2" jdbcType="INTEGER" property="parentid"/>
+    <collection property="categories" ofType="com.example.fmmall.entity.CategoryVO">
+      <id column="category_id3" jdbcType="INTEGER" property="categoryid"/>
+      <result column="category_name3" jdbcType="VARCHAR" property="categoryname"/>
+      <result column="category_level3" jdbcType="INTEGER" property="categorylevel"/>
+      <result column="parent_id3" jdbcType="INTEGER" property="parentid"/>
+    </collection>
+  </collection>
+  </resultMap>
+<select id="selectAllCategories" resultMap="categoryVOMap" >
+  select
+    c1.categoryId 'category_id1',
+          c1.categoryName 'category_name1',
+          c1.categoryLevel 'category_level1',
+          c1.parentId 'parent_id1',
+          c1.categoryIcon 'category_icon1',
+          c1.categorySlogan 'category_slogan1',
+          c1.categoryPic 'category_pic1',
+          c1.categoryBgcolor 'category_bg_color1',
+          c2.categoryId 'category_id2',
+          c2.categoryName 'category_name2',
+          c2.categoryLevel 'category_level2',
+          c2.parentId 'parent_id2',
+          c3.categoryId 'category_id3',
+          c3.categoryName 'category_name3',
+          c3.categoryLevel 'category_level3',
+          c3.parentId 'parent_id3'
+  from category c1
+         inner join category c2
+                    on c2.parentId=c1.categoryId
+         left join category c3
+                   on c3.parentId=c2.categoryId
+  where c1.categoryLevel=1
+</select>
+    <resultMap id="categoryVOMap2" type="com.example.fmmall.entity.CategoryVO">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="categoryId" jdbcType="INTEGER" property="categoryid" />
+        <result column="categoryName" jdbcType="VARCHAR" property="categoryname" />
+        <result column="categoryLevel" jdbcType="INTEGER" property="categorylevel" />
+        <result column="parentId" jdbcType="INTEGER" property="parentid" />
+        <result column="categoryIcon" jdbcType="VARCHAR" property="categoryicon" />
+        <result column="categorySlogan" jdbcType="VARCHAR" property="categoryslogan" />
+        <result column="categoryPic" jdbcType="VARCHAR" property="categorypic" />
+        <result column="categoryBgcolor" jdbcType="VARCHAR" property="categorybgcolor" />
+        <collection property="products" select="com.example.fmmall.dao.ProductMapper.selectTop6ByCategory" column="categoryId"></collection>
+    </resultMap>
+    <select id="selectFirstLevelCategories" resultMap="categoryVOMap2" >
+        select
+        categoryId,
+        categoryName,
+        categoryLevel,
+        parentId,
+        categoryIcon,
+        categorySlogan,
+       categoryPic,
+        categoryBgcolor
+        from category where categoryLevel=1
+    </select>
+</mapper>
