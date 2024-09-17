@@ -21,8 +21,4 @@ public class ProductController {
 
     }
 
-    public void test(){
-       System.out.println("aa");
-    }
-    //删除
 }
