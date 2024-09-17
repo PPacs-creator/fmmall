@@ -20,4 +20,6 @@ public class ProductController {
         return productService.getProductBasicInfo(pid);
 
     }
+
+    //实验
 }
