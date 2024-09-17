@@ -20,5 +20,9 @@ public class ProductController {
         return productService.getProductBasicInfo(pid);
 
     }
+
+    public void test(){
+       System.out.println("aa");
+    }
     //删除
 }
