@@ -26,4 +26,8 @@ public class ProductController {
     }
     //删除
 
+
+    public void test2(){
+        System.out.println("bbb");
+    }
 }
